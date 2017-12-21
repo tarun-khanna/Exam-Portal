@@ -1,0 +1,1 @@
+const studentApp = angular.module("studentApp", []);

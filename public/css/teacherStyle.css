@@ -1,0 +1,12 @@
+img{
+    cursor: pointer;
+}
+.blueRow{
+    background-color: rgb(98, 241, 232);
+}
+.redRow{
+    background-color: darksalmon;
+}
+.greenRow{
+    background-color: chartreuse;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+
+    <link rel="stylesheet" href="css/teacherStyle.css">
+
+    <script src="js/models/question.js"></script>
+    <script src="js/apps/teacherApp.js"></script>
+    <script src="js/factories/teacherFactory.js"></script>
+    <script src="js/controllers/teacherController.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="teacherApp" class="container">
+    <div ng-controller="teacherController">
+            <div>
+                Question id: <label for="" ng-model="questionid">{{questionid}}</label>
+                    Enter Question:<input type="text" ng-model="name">
+                    Option 1-<input type="text" ng-model="option1">
+                    Option 2-<input type="text" ng-model="option3">
+                    Option 3-<input type="text" ng-model="option2">
+                    Option 4-<input type="text" ng-model="option4">
+                    <select ng-model="answer">
+                        <option ng-if="option1" value="{{option1}}">{{option1}}</option>
+                        <option ng-if="option2" value="{{option2}}">{{option2}}</option>
+                        <option ng-if="option3" value="{{option3}}">{{option3}}</option>
+                        <option ng-if="option4" value="{{option4}}">{{option4}}</option>
+                        <option value="" disabled selected>Select the answer</option>
+                    </select>
+                    <input type="button" value="ADD!" ng-click="addques()">
+                    <input type="button" value="Delete!" ng-click="delques()">
+                    <input type="button" value="UPDATE!" ng-click="updateques()" >
+                    <input type="button" value="SAVE LOCAL!" ng-click="savelocalques()">
+                    <input type="button" value="FETCH LOCAL!" ng-click="fetchlocalques()">
+                    <input type="button" value="SUBMIT!" ng-click="submit()">
+                    
+            </div>
+        <table>
+            <thead>
+                <th>Question Id</th>
+                <th>Question</th>
+                <th>Option 1</th>
+                <th>Option 2</th>
+                <th>Option 3</th>
+                <th>Option 4</th>
+                <th>Answer</th>
+                <th>Operation</th>
+            </thead>
+            <tbody>
+                <tr ng-model="questions" ng-repeat="question in questions" id="{{question.id}}">
+                    <td>{{question.id}}</td>
+                    <td>{{question.name}}</td>
+                    <td>{{question.option1}}</td>
+                    <td>{{question.option2}}</td>
+                    <td>{{question.option3}}</td>
+                    <td>{{question.option4}}</td>
+                    <td>{{question.answer}}</td>
+                    <td><img  src="images/edit.png" ng-click="editques($event)" alt="edit">
+                        <img  src="images/delete.png" ng-click="markques($event)"  alt="delete">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>    
+</body>
+</html>
